@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { handleFindContact } from 'redux/filterContactsSlice';
 import { deleteContact } from 'redux/operations';
+import { selectContacts, selectFilter } from 'redux/selectors';
 
 import {
   ContactList,
@@ -11,8 +12,8 @@ import {
 
 export const Contact = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
-  const query = useSelector(state => state.filter.filter);
+  const contacts = useSelector(selectContacts);
+  const query = useSelector(selectFilter);
 
   const getVisibleContact = () => {
     const normalizeFilter = query.toLocaleLowerCase();
