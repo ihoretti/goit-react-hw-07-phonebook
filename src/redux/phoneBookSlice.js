@@ -22,10 +22,10 @@ const phoneBookSlice = createSlice({
   },
   extraReducers: {
     // -----fetchContacts----------
+    [fetchContacts.pending]: handlePending,
     [fetchContacts.pending](state) {
       state.isLoading = true;
     },
-
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
